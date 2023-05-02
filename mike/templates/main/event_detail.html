@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Event detail {% endblock %}
+{% block content %}
+<div class="container-fluid">
+
+	<div class="card my-3 border-0 bg-transparent">
+		<div class="card-body p-0 mb-3">
+			<h3 class="card-title text-secondary d-inline-block bg-dark p-3 m-0">{{ object.title }}</h3>
+		</div>
+		{%if object.subtitle%}
+		<h6 class="card-subtitle mb-2 text-muted">{{ object.subtitle }}</h6>
+		{% endif %}
+		<h6 class="card-subtitle mb-2 text-muted">{{ object.location }} {{ object.date|date:'Y' }}</h6>
+		<p class="card-text">{{ object.description }}</p>
+		<div class="">
+			{% for image in object.images.all %}
+			<img src="{{ image.image.url }}" class="card-img" alt="{{ image.image }}">
+			{% endfor %}
+		</div>
+
+		{% if object.video_link %}
+		<div class="video-container">
+			<iframe src="{{ object.video_link }}" allowfullscreen></iframe>
+			{% comment %} <iframe id="ytplayer" type="text/html" width="720" height="405" src="{{ object.video_link }}" frameborder="0"
+				allowfullscreen></iframe> {% endcomment %}
+		</div>
+		{% endif %}
+		
+	</div>
+
+</div>
+{% endblock %}

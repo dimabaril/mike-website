@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} INTERACTIVE CG {% endblock %}
+{% block content %}
+<div class="container-fluid">
+  {% for event in object_list %}
+  {% include 'includes/event.html'%}
+  {% endfor %}
+</div>
+{% endblock %}

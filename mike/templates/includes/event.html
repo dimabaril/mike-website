@@ -1,0 +1,36 @@
+<div class="card my-3 border-0 bg-transparent">
+	<div class="card-body p-0 mb-3">
+		<a href="{% url 'main:event_detail' event.id %}">
+			<h3 class="card-title text-secondary d-inline-block bg-dark p-3 m-0">{{ event.title }}</h3>
+		</a>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<a href="{% url 'main:event_detail' event.id %}">
+				{% comment %} тут берём только первую картинку {% endcomment %}
+				<img src="{{ event.images.first.image.url }}" class="card-img" alt="{{ event.images.first.image }}">
+
+				{% comment %} далее перечисляем картинки {% endcomment %}
+				{% comment %} {% for image in event.images.all %}
+				<img src="{{ image.image.url }}" class="card-img" alt="{{ image.image }}">
+				{% endfor %} {% endcomment %}
+			</a>
+		</div>
+		<div class="col-md-4">
+			<div class="card-body">
+				{% comment %} <h5 class="card-title">{{ event.title }}</h5> {% endcomment %}
+				{%if event.subtitle%}
+					<h6 class="card-subtitle mb-2 text-muted">{{ event.subtitle }}</h6>
+				{% endif %}
+				<h6 class="card-subtitle mb-2 text-muted">{{ event.location }} {{ event.date|date:'Y' }}</h6>
+				<p class="card-text">{{ event.description }}</p>
+			</div>
+		</div>
+	</div>
+	{% comment %} {% if event.video_link %}
+	<div class="video-container">
+		<iframe id="ytplayer" type="text/html" width="720" height="405" src="{{ event.video_link }}" frameborder="0"
+			allowfullscreen></iframe>
+	</div>
+	{% endif %} {% endcomment %}
+</div>

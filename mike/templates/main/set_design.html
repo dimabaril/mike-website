@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} SET DESIGN {% endblock %}
+{% block content %}
+<div class="container-fluid">
+  {% for event in object_list %}
+  {% include 'includes/event.html'%}
+  {% endfor %}
+</div>
+{% endblock %}
