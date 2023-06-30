@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
             name="type",
             field=models.CharField(
                 choices=[
-                    ("typeless", "HIDDEN"),
+                    ("hidden", "HIDDEN"),
                     ("media_artist", "MEDIA ARTIST"),
                     ("video_design", "VIDEO DESIGN"),
                     ("av_performance", "A/V PERFORMANCE"),
                     ("visuals", "VISUALS"),
                 ],
-                default="typeless",
+                default="hidden",
                 max_length=15,
                 verbose_name="type of event",
             ),

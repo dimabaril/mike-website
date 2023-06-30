@@ -15,7 +15,7 @@
           <span class="nav-link">/</span>
         </li>
         {% for event_type, event_type_label in event_types %}
-        {% if not event_type == 'typeless' %}
+        {% if not event_type == 'hidden' %}
         <li class="nav-item">
           <a class="nav-link {% if request.resolver_match.kwargs.event_type == event_type %}active{% endif %}"
             href="{% url 'main:event_list_by_type' event_type %}">{{ event_type_label }}</a>

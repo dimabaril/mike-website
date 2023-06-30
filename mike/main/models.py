@@ -1,16 +1,12 @@
-# from month_year_field.fields import MonthYearField
 from django.db import models
 
 
 class Event(models.Model):
-    """Event."""
-
     title = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=50, null=True, blank=True)
     location = models.CharField(max_length=50, null=True, blank=True)
     date = models.DateField("date of event")
     description = models.TextField(null=True, blank=True)
-    # images = models.ManyToManyField(Image, related_name="events", blank=True)
     video_link = models.URLField(
         null=True,
         blank=True,
@@ -23,7 +19,7 @@ class Event(models.Model):
     )
 
     class TypeChoice(models.TextChoices):
-        TYPELESS = "typeless", "HIDDEN"
+        HIDDEN = "hidden", "HIDDEN"
         MEDIA_ARTIST = "media_artist", "MEDIA ARTIST"
         VIDEO_DESIGN = "video_design", "VIDEO DESIGN"
         AV_PERFORMANCE = "av_performance", "A/V PERFORMANCE"
@@ -33,7 +29,7 @@ class Event(models.Model):
         "type of event",
         max_length=15,
         choices=TypeChoice.choices,
-        default=TypeChoice.TYPELESS,
+        default=TypeChoice.HIDDEN,
     )
 
     author = models.ForeignKey("auth.User", on_delete=models.CASCADE)
@@ -49,8 +45,6 @@ class Event(models.Model):
 
 
 class Image(models.Model):
-    """Image."""
-
     event = models.ForeignKey(
         Event,
         on_delete=models.CASCADE,

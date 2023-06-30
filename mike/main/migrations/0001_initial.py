@@ -55,9 +55,9 @@ class Migration(migrations.Migration):
                         choices=[
                             ("set_design", "set design"),
                             ("interactive_cg", "interactive cg"),
-                            ("typeless", "Неопределенный"),
+                            ("hidden", "Неопределенный"),
                         ],
-                        default="typeless",
+                        default="hidden",
                         max_length=15,
                         verbose_name="type of event",
                     ),

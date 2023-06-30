@@ -21,5 +21,4 @@ class PostAdmin(admin.ModelAdmin):
     # empty_value_display = "-пусто-"
 
 
-# admin.site.register(Event)
 admin.site.register(Image)
