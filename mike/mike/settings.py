@@ -16,6 +16,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
+    "mikeiv.art",
+    # "www.mikeiv.art",
     "89.223.68.25",
 ]
 
