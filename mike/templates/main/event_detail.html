@@ -5,22 +5,21 @@
 
 	<div class="card my-3 border-0 bg-transparent">
 		<div class="card-body p-0 mb-3">
-			<h3 class="card-title text-secondary d-inline-block bg-dark p-3 m-0">{{ object.title }}</h3>
+			<h3 class="card-title d-inline-block fs-3 text-white fw-light bg-dark p-3 m-0">{{ object.title }}</h3>
 		</div>
 		{%if object.subtitle%}
-		<h6 class="card-subtitle mb-2 text-muted">{{ object.subtitle }}</h6>
-		{% endif %}
-		<h6 class="card-subtitle mb-2 text-muted">{{ object.location }} {{ object.date|date:'Y' }}</h6>
-		<p class="card-text">{{ object.description }}</p>
+			<h6 class="card-subtitle text-muted fs-5 mb-2">{{ object.subtitle }}</h6> {% endif %}
+		<h6 class="card-subtitle fs-4 text-light fw-light mb-2">{{ object.location }} {{ object.date|date:'Y' }}</h6>  
+		<p class="card-text fw-light text-justify">{{ object.description }}</p>
 		<div class="">
 			{% for image in object.images.all %}
-			<img src="{{ image.image.url }}" class="card-img" alt="{{ image.image }}">
+			<img src="{{ image.image.url }}" class="card-img py-2" alt="{{ image.image }}">
 			{% endfor %}
 		</div>
 
 		{% if object.video_link %}
 		<div class="video-container">
-			<iframe src="{{ object.video_link }}" allowfullscreen></iframe>
+			<iframe src="{{ object.video_link }}" class="py-2" allowfullscreen></iframe>
 			{% comment %} <iframe id="ytplayer" type="text/html" width="720" height="405" src="{{ object.video_link }}" frameborder="0"
 				allowfullscreen></iframe> {% endcomment %}
 		</div>

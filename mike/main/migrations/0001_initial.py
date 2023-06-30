@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,34 +14,76 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Image',
+            name="Image",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='images')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="images")),
             ],
             options={
-                'verbose_name': 'Image',
-                'verbose_name_plural': 'Images',
+                "verbose_name": "Image",
+                "verbose_name_plural": "Images",
             },
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=50)),
-                ('description', models.TextField()),
-                ('date', models.DateField(verbose_name='date of event')),
-                ('location', models.CharField(blank=True, max_length=50, null=True)),
-                ('video_link', models.URLField(blank=True, null=True)),
-                ('type', models.CharField(choices=[('set_design', 'set design'), ('interactive_cg', 'interactive cg'), ('untype', 'Неопределенный')], default='untype', max_length=15, verbose_name='type of event')),
-                ('pub_date', models.DateTimeField(auto_now_add=True, verbose_name='date of add')),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('images', models.ManyToManyField(blank=True, related_name='events', to='main.image')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=50)),
+                ("description", models.TextField()),
+                ("date", models.DateField(verbose_name="date of event")),
+                ("location", models.CharField(blank=True, max_length=50, null=True)),
+                ("video_link", models.URLField(blank=True, null=True)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("set_design", "set design"),
+                            ("interactive_cg", "interactive cg"),
+                            ("typeless", "Неопределенный"),
+                        ],
+                        default="typeless",
+                        max_length=15,
+                        verbose_name="type of event",
+                    ),
+                ),
+                (
+                    "pub_date",
+                    models.DateTimeField(auto_now_add=True, verbose_name="date of add"),
+                ),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "images",
+                    models.ManyToManyField(
+                        blank=True, related_name="events", to="main.image"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Event',
-                'verbose_name_plural': 'Events',
-                'ordering': ['-date'],
+                "verbose_name": "Event",
+                "verbose_name_plural": "Events",
+                "ordering": ["-date"],
             },
         ),
     ]

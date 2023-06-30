@@ -15,21 +15,24 @@ class AboutView(TemplateView):
 
     template_name = "main/index.html"
 
-
-class InteractiveCg(ListView):
-    """InteractiveCg."""
-
-    model = Event
-    template_name = "main/interactive_cg.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["event_types"] = Event.TypeChoice.choices
+        return context
 
 
 class EventsView(ListView):
     """Event."""
 
-    model = Event
-    template_name = "main/set_design.html"
+    # model = Event
+    template_name = "main/events.html"
     # context_object_name = "events"
     # fields = ["title", "date", "location", "description"]
+
+    def get_queryset(self):
+        """Get queryset."""
+        # return Event.objects.filter(type=self.kwargs["event_type"])
+        return Event.objects.filter(type=self.kwargs["event_type"]).order_by("-date")
 
     # def get_context_data(self, **kwargs):
     #     """Get context data."""
@@ -37,9 +40,19 @@ class EventsView(ListView):
     #     context["events"] = Event.objects.all()  # [:5]
     #     return context
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["event_types"] = Event.TypeChoice.choices
+        return context
+
 
 class EventDetailView(DetailView):
     """EventDetailView."""
 
     model = Event
     template_name = "main/event_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["event_types"] = Event.TypeChoice.choices
+        return context
