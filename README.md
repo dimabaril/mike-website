@@ -1,5 +1,5 @@
 # mike-website
 
-https://www.mikeiv.art/
+http://www.mikeiv.art/
 
 наполняется через админку
