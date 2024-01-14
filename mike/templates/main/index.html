@@ -1,29 +1,38 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}MEDIA ARTIST{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block title %}MEDIA ARTIST{% endblock %} {% block content %}
 <div class="container-fluid py-3">
-  {% comment %} <div class="d-flex justify-content-center">
+  {% comment %}
+  <div class="d-flex justify-content-center">
     <h1 class="fs-2 fw-light">MIKE IV</h1>
-  </div> {% endcomment %}
+  </div>
+  {% endcomment %}
   <div class="row">
     <div class="col-md-4">
-      <img src="{% static 'pics/mike_face.png' %}" class="img-fluid" alt="pics/mike_face.png">
+      <img
+        src="{% static 'pics/mike_face.png' %}"
+        class="img-fluid"
+        alt="pics/mike_face.png"
+      />
     </div>
     <div class="col-md-4">
       <p class="fw-light pt-2">
-        <span class="fs-3 text-light">MIKE IV</span> is an artist in the field of media who specializes in creating visuals using images, generative
-        graphics,
-        installations, and audiovisual performances. His artistic contributions are showcased in theatre productions,
-        where
-        he is a member of the production team responsible for designing the video design of the stage. Collaborating
-        with
-        musicians and audio artists allows him to convey the emotional impact of sound through his graphic designs,
-        resulting in the production of captivating audiovisual performances and music videos.
+        <span class="fs-3 text-light">MIKE IV</span> is a media artist who
+        specializes in creating visual effects using images, generative
+        graphics, installations and audiovisual performances. His creative
+        contributions are evident in numerous theatrical productions in which he
+        participates as a member of the production team responsible for the
+        video stage design. Collaborations with musicians, sound artists and
+        performers from a variety of backgrounds allow him to convey the
+        emotional impact of sound and movement through his video works,
+        resulting in immersive audiovisual performances that shift the
+        boundaries of audience perception.
       </p>
     </div>
     <div class="col-md-4">
-      <img src="{% static 'pics/11.png' %}" class="img-fluid" alt="pics/11.png">
+      <img
+        src="{% static 'pics/11.png' %}"
+        class="img-fluid"
+        alt="pics/11.png"
+      />
     </div>
   </div>
   <!-- <p class="text-secondary">
@@ -33,10 +42,6 @@
     musicians and audio artists allows him to convey the emotional impact of sound through his graphic designs,
     resulting in the production of captivating audiovisual performances and music videos.
   </p> -->
-
-
 </div>
-<footer class="footer">
-  {% include 'includes/footer.html' %}
-</footer>
+<footer class="footer">{% include 'includes/footer.html' %}</footer>
 {% endblock %}
